@@ -22,6 +22,6 @@ setup(
     ],
     packages=find_packages(),
     include_package_data = True,
-    install_requires = ['asyncio', 'HumanCursor', 'keyboard'],
+    install_requires = ['HumanCursor', 'keyboard'],
     python_requires='>=3.6'
 )
