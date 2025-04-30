@@ -1,8 +1,9 @@
 import random
-import pyautogui
 import cv2
 import numpy as np
 from .base import EmuniumBase, ClickType
+
+pyautogui = None
 
 class Emunium(EmuniumBase):
     def __init__(self, ocr=False, use_gpu=True, langs=['en']):
@@ -11,6 +12,9 @@ class Emunium(EmuniumBase):
         self.ocr_reader = None
 
         if self.ocr:
+            global pyautogui
+            import pyautogui as _pyautogui
+            pyautogui = _pyautogui
             screen_width, screen_height = pyautogui.size()
             self.monitor_region = (0, 0, screen_width, screen_height)
             try:
